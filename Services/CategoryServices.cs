@@ -47,9 +47,9 @@ public class CategoryServices : ICategoryServices
         return isSuccess ? category : null;
     }
 
-    public async Task<bool> DeleteCategory(Category category)
+    public async Task<bool> DeleteCategory(short id)
     {
-        var existCategory = await _categoryRepository.GetCategoryById(category.CategoryId).ConfigureAwait(false);
+        var existCategory = await _categoryRepository.GetCategoryById(id).ConfigureAwait(false);
 
         if (existCategory is null)
         {

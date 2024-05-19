@@ -4,30 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssignmentWFP"
+        xmlns:businessObject="clr-namespace:BusinessObject;assembly=BusinessObject"
         mc:Ignorable="d"
-        Title="Account" Height="450" Width="1000"
-        Loaded="Account_OnLoaded" 
-        >
+        Title="Account" Height="450" Width="1000">
     <Grid>
         <Label Content="Id" FontSize="16px" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="174,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="174,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
 
         <Label Content="UserName" FontSize="16px" HorizontalAlignment="Left" Margin="51,122,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox FontSize="16px" HorizontalAlignment="Left" Margin="174,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtUsername" FontSize="16px" HorizontalAlignment="Left" Margin="174,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
 
         <Label Content="Email" FontSize="16px" HorizontalAlignment="Left" Margin="51,178,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox FontSize="16px" HorizontalAlignment="Left" Margin="174,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtEmail" FontSize="16px" HorizontalAlignment="Left" Margin="174,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
 
         <Label Content="Role" FontSize="16px" HorizontalAlignment="Left" Margin="51,234,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
         <ComboBox x:Name="CbRole" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="237" Height="31"/>
 
-        <DataGrid x:Name="DgAccount" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="443,65,36,111"/>
+        <DataGrid x:Name="DgAccount" Margin="443,65,36,111" Width="520" Height="260" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
         <Button Content="Create" HorizontalAlignment="Left" Margin="83,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         <Button Content="Update" HorizontalAlignment="Left" Margin="252,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="419,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
+        <Button Click="BtnDelete_OnClick" x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="419,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         
-        <TextBox FontSize="16px" HorizontalAlignment="Left" Margin="555,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="409" Height="33"/>
+        <TextBox x:Name="TxtSearch" FontSize="16px" HorizontalAlignment="Left" Margin="555,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="409" Height="33"/>
         <Label Content="Search" FontSize="16px" HorizontalAlignment="Left" Margin="440,14,0,0" VerticalAlignment="Top" Height="31" Width="102" RenderTransformOrigin="0.508,0.659"/>
     </Grid>
 </Window>

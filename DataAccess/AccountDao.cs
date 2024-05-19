@@ -41,7 +41,9 @@ public static class AccountDao
     {
         var context = new FunewsManagementDbContext();
 
-        return await context.SystemAccounts.SingleOrDefaultAsync(a => a.AccountId == id);
+        return await context.SystemAccounts
+            .Include(a => a.NewsArticles)
+            .SingleOrDefaultAsync(a => a.AccountId == id);
     }
 
     public static async Task<bool> AddAsync(SystemAccount systemAccount)

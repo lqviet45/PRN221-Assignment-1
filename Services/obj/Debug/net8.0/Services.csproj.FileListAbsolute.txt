@@ -17,3 +17,4 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Ser
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\refint\Services.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\ref\Services.dll
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.sourcelink.json

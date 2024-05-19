@@ -22,30 +22,58 @@ namespace AssignmentWFP
     public partial class Account : Window
     {
         private readonly IAccountServices _accountServices;
+
         public Account(IAccountServices accountServices)
         {
             _accountServices = accountServices;
             InitializeComponent();
-        }
-
-        private void Account_OnLoaded(object sender, RoutedEventArgs e)
-        {
             LoadData();
         }
 
         private async void LoadData()
         {
             var accountList = await _accountServices.GetAllAccount();
-            DgAccount.ItemsSource = accountList.Select(a => new {
+            DgAccount.ItemsSource = accountList.Select(a => new
+            {
+                a.AccountId,
                 a.AccountName,
                 a.AccountEmail,
                 a.AccountRole
             });
+            DgAccount.IsReadOnly = true;
             CbRole.ItemsSource = new List<string>
             {
                 "Manage",
                 "User"
             };
+        }
+
+        private async void BtnDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Do you want to delete this user!!",
+                "Delete Account",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            var id = short.Parse(TxtId.Text);
+            var isSuccess = await _accountServices.DeleteAccount(id);
+            if (isSuccess)
+            {
+                MessageBox.Show("Delete Success",
+                    "",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+            
+            MessageBox.Show("Delete Fail, System Error",
+                "",
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
         }
     }
 }

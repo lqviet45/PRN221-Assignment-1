@@ -14,5 +14,5 @@ public interface IAccountServices
 
     public Task<SystemAccount?> UpdateAccount(SystemAccount account);
 
-    public Task<bool> DeleteAccount(SystemAccount account);
+    public Task<bool> DeleteAccount(short id);
 }

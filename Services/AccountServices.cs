@@ -7,10 +7,12 @@ namespace Services;
 public class AccountServices : IAccountServices
 {
     private readonly IAccountRepository _accountRepository;
+    private readonly INewsArticleServices _newsArticleServices;
 
-    public AccountServices(IAccountRepository accountRepository)
+    public AccountServices(IAccountRepository accountRepository, INewsArticleServices newsArticleServices)
     {
         _accountRepository = accountRepository;
+        _newsArticleServices = newsArticleServices;
     }
 
     public async Task<SystemAccount?> Login(string username, string password)
@@ -52,15 +54,16 @@ public class AccountServices : IAccountServices
         return isSuccess ? existAccount : null;
     }
 
-    public async Task<bool> DeleteAccount(SystemAccount account)
+    public async Task<bool> DeleteAccount(short id)
     {
-        var existAccount = await _accountRepository.GetAccountById(account.AccountId).ConfigureAwait(false);
+        var existAccount = await _accountRepository.GetAccountById(id).ConfigureAwait(false);
 
         if (existAccount is null)
         {
-            throw new ArgumentNullException(nameof(account), "Account doesn't exist to delete!!");
+            throw new ArgumentNullException(nameof(existAccount), "Account doesn't exist to delete!!");
         }
-        //TODO: change News author before delete account
+        await _newsArticleServices.UpdateArticlesWhenDeleteAccount(existAccount.NewsArticles.ToList())
+            .ConfigureAwait(false);
         
         var isSuccess = await _accountRepository.DeleteAccount(existAccount).ConfigureAwait(false);
 

@@ -12,5 +12,5 @@ public interface ICategoryServices
 
     public Task<Category?> UpdateCategory(Category category);
 
-    public Task<bool> DeleteCategory(Category category);
+    public Task<bool> DeleteCategory(short category);
 }
