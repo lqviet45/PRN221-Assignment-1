@@ -14,7 +14,7 @@ namespace AssignmentWFP;
 /// </summary>
 public partial class App : Application
 {
-    private ServiceProvider _serviceProvider;
+    private readonly ServiceProvider _serviceProvider;
     public App()
     {
         IServiceCollection collection = new ServiceCollection();
@@ -22,6 +22,8 @@ public partial class App : Application
         collection.AddSingleton<ICategoryServices, CategoryServices>();
         collection.AddSingleton<IAccountRepository, AccountRepository>();
         collection.AddSingleton<IAccountServices, AccountServices>();
+        collection.AddSingleton<INewsArticleRepository, NewsArticleRepository>();
+        collection.AddSingleton<INewsArticleServices, NewsArticleServices>();
         collection.AddSingleton<Login>();
         collection.AddSingleton<Account>();
         _serviceProvider = collection.BuildServiceProvider();

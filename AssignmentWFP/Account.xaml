@@ -18,12 +18,21 @@
         <TextBox x:Name="TxtEmail" FontSize="16px" HorizontalAlignment="Left" Margin="174,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
 
         <Label Content="Role" FontSize="16px" HorizontalAlignment="Left" Margin="51,234,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <ComboBox x:Name="CbRole" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="237" Height="31"/>
+        <ComboBox x:Name="CbRole" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="237" Height="31">
+        </ComboBox>
 
-        <DataGrid x:Name="DgAccount" Margin="443,65,36,111" Width="520" Height="260" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <DataGrid x:Name="DgAccount" Margin="443,65,36,111" Width="520" Height="260" VerticalAlignment="Top" HorizontalAlignment="Left" AutoGenerateColumns="False" 
+                  MouseDoubleClick="DgAccount_OnMouseDoubleClick" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding AccountId}"/>
+                <DataGridTextColumn Header="UserName" Binding="{Binding AccountName}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding AccountEmail}" />
+                <DataGridTextColumn Header="Role" Binding="{Binding AccountRole}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Button Content="Create" HorizontalAlignment="Left" Margin="83,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="252,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
+        <Button Content="Create" Click="ButtonBase_OnClick" HorizontalAlignment="Left" Margin="83,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
+        <Button Content="Update" Click="BtnUpdate_OnClick" HorizontalAlignment="Left" Margin="252,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         <Button Click="BtnDelete_OnClick" x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="419,367,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
         
         <TextBox x:Name="TxtSearch" FontSize="16px" HorizontalAlignment="Left" Margin="555,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="409" Height="33"/>

@@ -99,7 +99,7 @@ public partial class FunewsManagementDbContext : DbContext
             entity.ToTable("SystemAccount");
 
             entity.Property(e => e.AccountId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("AccountID");
             entity.Property(e => e.AccountEmail).HasMaxLength(70);
             entity.Property(e => e.AccountName).HasMaxLength(100);
@@ -113,7 +113,7 @@ public partial class FunewsManagementDbContext : DbContext
             entity.ToTable("Tag");
 
             entity.Property(e => e.TagId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("TagID");
             entity.Property(e => e.Note).HasMaxLength(400);
             entity.Property(e => e.TagName).HasMaxLength(50);

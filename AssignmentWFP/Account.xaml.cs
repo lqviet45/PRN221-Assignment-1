@@ -40,12 +40,20 @@ namespace AssignmentWFP
                 a.AccountEmail,
                 a.AccountRole
             });
-            DgAccount.IsReadOnly = true;
             CbRole.ItemsSource = new List<string>
             {
-                "Manage",
-                "User"
+                "Staff",
+                "Lecturer"
             };
+            // TxtId.Text = StaticUserLogin.UserLogin?.AccountId.ToString() ?? "";
+            // TxtUsername.Text = StaticUserLogin.UserLogin?.AccountName ?? "";
+            // TxtEmail.Text = StaticUserLogin.UserLogin?.AccountEmail ?? "";
+            // CbRole.Text = StaticUserLogin.UserLogin?.AccountRole switch
+            // {
+            //     1 => "Staff",
+            //     2 => "Lecturer",
+            //     _ => ""
+            // };
         }
 
         private async void BtnDelete_OnClick(object sender, RoutedEventArgs e)
@@ -59,21 +67,67 @@ namespace AssignmentWFP
                 return;
             }
 
-            var id = short.Parse(TxtId.Text);
-            var isSuccess = await _accountServices.DeleteAccount(id);
-            if (isSuccess)
+            try
             {
-                MessageBox.Show("Delete Success",
+                var id = short.Parse(TxtId.Text);
+                var isSuccess = await _accountServices.DeleteAccount(id);
+                if (isSuccess)
+                {
+                    MessageBox.Show("Delete Success",
+                        "",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                    return;
+                }
+            
+                MessageBox.Show("Delete Fail, System Error",
                     "",
                     MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                    MessageBoxImage.Warning);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
                 return;
             }
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new AccountDialog(_accountServices);
+            if (dialog.ShowDialog() == true)
+            {
+                LoadData();
+            }
+        }
+        
+        private void BtnUpdate_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedAccount = (dynamic)DgAccount.SelectedItem;
+            if (selectedAccount != null)
+            {
+                var dialog = new AccountDialog(_accountServices, selectedAccount.AccountId);
+                if (dialog.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an account to update.", "Warning",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void DgAccount_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedAccount = (dynamic)DgAccount.SelectedItem;
+            if (selectedAccount == null) return;
             
-            MessageBox.Show("Delete Fail, System Error",
-                "",
-                MessageBoxButton.OK,
-                MessageBoxImage.Warning);
+            TxtId.Text = selectedAccount.AccountId.ToString();
+            TxtUsername.Text = selectedAccount.AccountName ?? "";
+            TxtEmail.Text = selectedAccount.AccountEmail ?? "";
+            //CbRole.SelectedItem = selectedAccount.AccountRole.ToString();
         }
     }
 }

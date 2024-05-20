@@ -7,12 +7,12 @@ namespace Services;
 public class NewsArticleServices : INewsArticleServices
 {
     private readonly INewsArticleRepository _articleRepository;
-    private readonly IAccountServices _accountServices;
+    private readonly IAccountRepository _accountRepository;
 
-    public NewsArticleServices(INewsArticleRepository articleRepository, IAccountServices accountServices)
+    public NewsArticleServices(INewsArticleRepository articleRepository, IAccountRepository accountRepository)
     {
         _articleRepository = articleRepository;
-        _accountServices = accountServices;
+        _accountRepository = accountRepository;
     }
 
     public async Task<IEnumerable<NewsArticle>> GetAllArticle()
@@ -56,7 +56,7 @@ public class NewsArticleServices : INewsArticleServices
     
     public async Task UpdateArticlesWhenDeleteAccount(List<NewsArticle> article)
     {
-        var account = (await _accountServices.GetAllAccount()).First();
+        var account = (await _accountRepository.GetAllAccount()).First();
         if (article.Count <= 0)
         {
             return;

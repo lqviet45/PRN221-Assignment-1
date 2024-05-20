@@ -84,3 +84,5 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\bin\Debug\net8.
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\Account.g.cs
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\Account.baml
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\AssignmentWFP.sourcelink.json
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\AccountDialog.g.cs
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\AccountDialog.baml

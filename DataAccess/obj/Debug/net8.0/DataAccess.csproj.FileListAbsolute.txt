@@ -13,3 +13,4 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\DataAccess\obj\Debug\net8.0\D
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json

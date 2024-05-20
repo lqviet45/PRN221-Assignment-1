@@ -15,3 +15,4 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\ref\Repositories.dll
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json

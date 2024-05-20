@@ -37,10 +37,12 @@ public partial class Login : Window
         }
 
         StaticUserLogin.UserLogin = user;
-        this.Dispatcher.Invoke(() => { BtnLogin.IsEnabled = true; });
+        this.Dispatcher.Invoke(() =>
+            {
+                BtnLogin.IsEnabled = true; 
+                _accountView.Show();
+                this.Close();
+            });
         
-        
-        _accountView.Show();
-        this.Close();
     }
 }
