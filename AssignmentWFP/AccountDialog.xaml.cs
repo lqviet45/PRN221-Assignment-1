@@ -26,7 +26,7 @@ public partial class AccountDialog : Window
         var account = await _accountServices.GetAccountById(_accountId.Value);
         
         if (account is null) return;
-        
+        TxtId.Text = _accountId.Value.ToString();
         TxtUsername.Text = account.AccountName ?? "";
         TxtEmail.Text = account.AccountEmail ?? "";
         CbRole.Text = account.AccountRole switch
@@ -44,7 +44,7 @@ public partial class AccountDialog : Window
         {
             var account = new SystemAccount
             {
-                AccountId = _accountId ?? 0,
+                AccountId = short.Parse(TxtId.Text),
                 AccountName = TxtUsername.Text,
                 AccountEmail = TxtEmail.Text,
                 AccountRole = CbRole.Text switch

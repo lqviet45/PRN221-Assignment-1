@@ -39,19 +39,9 @@ public class AccountServices : IAccountServices
 
     public async Task<SystemAccount?> UpdateAccount(SystemAccount account)
     {
-        var existAccount = await _accountRepository.GetAccountById(account.AccountId).ConfigureAwait(false);
+        var isSuccess = await _accountRepository.UpdateAccount(account).ConfigureAwait(false);
 
-        if (existAccount is null)
-        {
-            throw new ArgumentNullException(nameof(account), "Account doesn't exist to update!!");
-        }
-
-        existAccount.AccountName = account.AccountName;
-        existAccount.AccountRole = account.AccountRole;
-
-        var isSuccess = await _accountRepository.UpdateAccount(existAccount).ConfigureAwait(false);
-
-        return isSuccess ? existAccount : null;
+        return isSuccess ? account : null;
     }
 
     public async Task<bool> DeleteAccount(short id)

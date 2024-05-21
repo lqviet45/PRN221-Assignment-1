@@ -24,7 +24,8 @@
         <TextBox x:Name="TextPassword" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Margin="50,0,0,0" TextWrapping="Wrap" Text="" 
                  VerticalAlignment="Center" Width="333" Height="29" FontSize="16"/>
 
-        <Button x:Name="BtnLogin" Grid.Row="3" Grid.ColumnSpan="4" Grid.Column="2" Content="Button" Margin="82,283,0,0" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="194" Click="Button_Click"/>
+        <Button x:Name="BtnLogin" Grid.Row="3" Grid.ColumnSpan="4" Grid.Column="2" Content="Login" Margin="82,283,0,0" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="194" Click="Button_Click"/>
+        <Button x:Name="BtnViewNews" Grid.Column="1" Content="Go To News" Margin="368,368,0,0" VerticalAlignment="Top" Height="25" HorizontalAlignment="Left" Width="154" Click="BtnViewNews_Click"/>
 
     </Grid>
 </Window>

@@ -57,7 +57,16 @@ public static class AccountDao
     public static async Task<bool> UpdateAsync(SystemAccount systemAccount)
     {
         var context = new FunewsManagementDbContext();
-        context.Update(systemAccount);
+        var existAccount = await context.SystemAccounts.FirstOrDefaultAsync(a => a.AccountId == systemAccount.AccountId);
+
+        if (existAccount is null)
+        {
+            throw new ArgumentNullException(nameof(systemAccount), "Account doesn't exist to update!!");
+        }
+
+        existAccount.AccountName = systemAccount.AccountName;
+        existAccount.AccountRole = systemAccount.AccountRole;
+        existAccount.AccountPassword = systemAccount.AccountPassword;
 
         return await context.SaveChangesAsync() > 0;
     }

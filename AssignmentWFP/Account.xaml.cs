@@ -45,15 +45,6 @@ namespace AssignmentWFP
                 "Staff",
                 "Lecturer"
             };
-            // TxtId.Text = StaticUserLogin.UserLogin?.AccountId.ToString() ?? "";
-            // TxtUsername.Text = StaticUserLogin.UserLogin?.AccountName ?? "";
-            // TxtEmail.Text = StaticUserLogin.UserLogin?.AccountEmail ?? "";
-            // CbRole.Text = StaticUserLogin.UserLogin?.AccountRole switch
-            // {
-            //     1 => "Staff",
-            //     2 => "Lecturer",
-            //     _ => ""
-            // };
         }
 
         private async void BtnDelete_OnClick(object sender, RoutedEventArgs e)
@@ -121,13 +112,20 @@ namespace AssignmentWFP
 
         private void DgAccount_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var selectedAccount = (dynamic)DgAccount.SelectedItem;
-            if (selectedAccount == null) return;
-            
-            TxtId.Text = selectedAccount.AccountId.ToString();
-            TxtUsername.Text = selectedAccount.AccountName ?? "";
-            TxtEmail.Text = selectedAccount.AccountEmail ?? "";
-            //CbRole.SelectedItem = selectedAccount.AccountRole.ToString();
+            try
+            {
+                var selectedAccount = (dynamic)DgAccount.SelectedItem;
+                if (selectedAccount == null) return;
+                
+                TxtId.Text = selectedAccount.AccountId.ToString();
+                TxtUsername.Text = selectedAccount.AccountName ?? "";
+                TxtEmail.Text = selectedAccount.AccountEmail ?? "";
+                //CbRole.SelectedItem = selectedAccount.AccountRole.ToString();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }

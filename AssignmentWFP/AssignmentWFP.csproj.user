@@ -5,9 +5,15 @@
     <Compile Update="Account.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="NewsArticleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Account.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NewsArticleView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

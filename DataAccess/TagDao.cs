@@ -30,7 +30,7 @@ public static class TagDao
     public static async Task<bool> UpdateAsync(Tag tag)
     {
         var context = new FunewsManagementDbContext();
-        context.Update(tag);
+        context.Tags.Update(tag);
 
         return await context.SaveChangesAsync() > 0;
     }

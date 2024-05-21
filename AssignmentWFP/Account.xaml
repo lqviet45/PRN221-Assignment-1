@@ -9,19 +9,19 @@
         Title="Account" Height="450" Width="1000">
     <Grid>
         <Label Content="Id" FontSize="16px" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox x:Name="TxtId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="174,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="174,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="33"/>
 
         <Label Content="UserName" FontSize="16px" HorizontalAlignment="Left" Margin="51,122,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox x:Name="TxtUsername" FontSize="16px" HorizontalAlignment="Left" Margin="174,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtUsername" FontSize="16px" HorizontalAlignment="Left" Margin="174,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="33"/>
 
         <Label Content="Email" FontSize="16px" HorizontalAlignment="Left" Margin="51,178,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <TextBox x:Name="TxtEmail" FontSize="16px" HorizontalAlignment="Left" Margin="174,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="33"/>
+        <TextBox x:Name="TxtEmail" FontSize="16px" HorizontalAlignment="Left" Margin="174,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="33"/>
 
         <Label Content="Role" FontSize="16px" HorizontalAlignment="Left" Margin="51,234,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
-        <ComboBox x:Name="CbRole" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="237" Height="31">
+        <ComboBox x:Name="CbRole" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="260" Height="31">
         </ComboBox>
 
-        <DataGrid x:Name="DgAccount" Margin="443,65,36,111" Width="520" Height="260" VerticalAlignment="Top" HorizontalAlignment="Left" AutoGenerateColumns="False" 
+        <DataGrid x:Name="DgAccount" Margin="470,65,20,111" Width="500" Height="260" VerticalAlignment="Top" HorizontalAlignment="Left" AutoGenerateColumns="False" 
                   MouseDoubleClick="DgAccount_OnMouseDoubleClick" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AccountId}"/>

@@ -8,11 +8,13 @@ public partial class Login : Window
 {
     private readonly IAccountServices _accountServices;
     private readonly Account _accountView;
+    private readonly NewsArticleView _newsArticleView;
 
-    public Login(IAccountServices accountServices, Account accountView)
+    public Login(IAccountServices accountServices, Account accountView, NewsArticleView newsArticle)
     {
         _accountServices = accountServices;
         _accountView = accountView;
+        _newsArticleView = newsArticle;
         InitializeComponent();
     }
 
@@ -37,6 +39,11 @@ public partial class Login : Window
         }
 
         StaticUserLogin.UserLogin = user;
+        if(user.AccountRole == 1)
+        {
+
+        }
+
         this.Dispatcher.Invoke(() =>
             {
                 BtnLogin.IsEnabled = true; 
@@ -44,5 +51,11 @@ public partial class Login : Window
                 this.Close();
             });
         
+    }
+
+    private void BtnViewNews_Click(object sender, RoutedEventArgs e)
+    {
+        _newsArticleView.Show();
+        this.Close();
     }
 }
