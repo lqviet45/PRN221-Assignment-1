@@ -22,6 +22,9 @@ public static class TagDao
     public static async Task<bool> AddAsync(Tag tag)
     {
         var context = new FunewsManagementDbContext();
+        var max = await context.Tags.MaxAsync(t => t.TagId);
+        tag.TagId = max + 1;
+        
         context.Add(tag);
 
         return await context.SaveChangesAsync() > 0;

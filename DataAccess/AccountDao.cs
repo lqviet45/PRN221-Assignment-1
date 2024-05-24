@@ -49,6 +49,8 @@ public static class AccountDao
     public static async Task<bool> AddAsync(SystemAccount systemAccount)
     {
         var context = new FunewsManagementDbContext();
+        var max = await context.SystemAccounts.MaxAsync(a => a.AccountId);
+        systemAccount.AccountId =(short)(max + 1);
         context.Add(systemAccount);
 
         return await context.SaveChangesAsync() > 0;

@@ -26,6 +26,8 @@ public static class NewsArticleDao
     public static async Task<bool> AddAsync(NewsArticle newsArticle)
     {
         var context = new FunewsManagementDbContext();
+        newsArticle.NewsArticleId = Guid.NewGuid().ToString();
+        
         context.Add(newsArticle);
 
         return await context.SaveChangesAsync() > 0;

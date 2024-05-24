@@ -20,10 +20,13 @@
         <ComboBox x:Name="CbCategory" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Tags" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnAddTag" Content="Add New Tag" HorizontalAlignment="Left" Margin="10,290,0,0" Width="100" VerticalAlignment="Top"
+                Click="BtnAddTag_OnClick"/>
+        
         <ListBox x:Name="LbTags" HorizontalAlignment="Left" Margin="150,220,0,0" VerticalAlignment="Top" Width="200" Height="100" SelectionMode="Multiple">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding TagName}"/>
+                    <CheckBox Content="{Binding TagName}" IsChecked="{Binding IsSelected}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

@@ -62,6 +62,6 @@ public partial class Login : Window
 
     private void BtnViewNews_Click(object sender, RoutedEventArgs e)
     {
-        _newsArticleView.Show();
+        _newsArticleView.ShowDialog();
     }
 }

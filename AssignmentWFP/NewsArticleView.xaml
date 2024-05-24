@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssignmentWFP"
         mc:Ignorable="d"
-        Title="NewsArticle" Height="700" Width="800">
+        Title="NewsArticle" Height="700" Width="800"
+        Closing="NewsArticleView_OnClosing">
     <Grid Height="700" Width="800">
         <Label Content="News Article Id" FontSize="16px" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
         <TextBox IsReadOnly="True" x:Name="TxtNewsArticleId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="250"/>

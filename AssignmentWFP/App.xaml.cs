@@ -24,6 +24,8 @@ public partial class App : Application
         collection.AddSingleton<IAccountServices, AccountServices>();
         collection.AddSingleton<INewsArticleRepository, NewsArticleRepository>();
         collection.AddSingleton<INewsArticleServices, NewsArticleServices>();
+        collection.AddSingleton<ITagRepository, TagRepository>();
+        collection.AddSingleton<ITagServices, TagServices>();
         collection.AddSingleton<Login>();
         collection.AddSingleton<Account>();
         collection.AddSingleton<NewsArticleView>();

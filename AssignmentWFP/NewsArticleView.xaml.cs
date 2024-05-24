@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,13 @@ namespace AssignmentWFP
         private readonly INewsArticleServices _newsArticleServices;
         private readonly IAccountServices _accountServices;
         private readonly ICategoryServices _categoryServices;
-        public NewsArticleView(INewsArticleServices newsArticleServices, IAccountServices accountServices, ICategoryServices categoryServices)
+        private readonly ITagServices _tagServices;
+        public NewsArticleView(INewsArticleServices newsArticleServices, IAccountServices accountServices, ICategoryServices categoryServices, ITagServices tagServices)
         {
             _newsArticleServices = newsArticleServices;
             _accountServices = accountServices;
             _categoryServices = categoryServices;
+            _tagServices = tagServices;
             InitializeComponent();
             LoadData();
         }
@@ -46,7 +49,7 @@ namespace AssignmentWFP
                     "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, TxtNewsArticleId.Text);
+            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, _tagServices, TxtNewsArticleId.Text);
             if (dialog.ShowDialog() == true)
             {
                 LoadData();
@@ -68,7 +71,7 @@ namespace AssignmentWFP
                 return;
             }
 
-            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, selectedNews.NewsArticleId);
+            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, _tagServices, selectedNews.NewsArticleId);
             if (dialog.ShowDialog() == true)
             {
                 LoadData();
@@ -117,6 +120,12 @@ namespace AssignmentWFP
             {
                 Console.WriteLine(exception);
             }
+        }
+
+        private void NewsArticleView_OnClosing(object? sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
