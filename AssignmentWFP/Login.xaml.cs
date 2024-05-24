@@ -39,23 +39,29 @@ public partial class Login : Window
         }
 
         StaticUserLogin.UserLogin = user;
-        if(user.AccountRole == 1)
+        switch (user.AccountRole)
         {
-
+            case 3:
+                this.Dispatcher.Invoke(() =>
+                {
+                    BtnLogin.IsEnabled = true; 
+                    _accountView.Show();
+                    this.Close();
+                });
+                return;
+            case 1:
+                this.Dispatcher.Invoke(() =>
+                {
+                    BtnLogin.IsEnabled = true; 
+                    _newsArticleView.Show();
+                    this.Close();
+                });
+                return;
         }
-
-        this.Dispatcher.Invoke(() =>
-            {
-                BtnLogin.IsEnabled = true; 
-                _accountView.Show();
-                this.Close();
-            });
-        
     }
 
     private void BtnViewNews_Click(object sender, RoutedEventArgs e)
     {
         _newsArticleView.Show();
-        this.Close();
     }
 }

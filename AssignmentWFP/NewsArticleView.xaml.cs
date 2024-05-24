@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Services.abstraction;
 
 namespace AssignmentWFP
 {
@@ -20,14 +21,101 @@ namespace AssignmentWFP
     /// </summary>
     public partial class NewsArticleView : Window
     {
-        public NewsArticleView()
+        private readonly INewsArticleServices _newsArticleServices;
+        private readonly IAccountServices _accountServices;
+        private readonly ICategoryServices _categoryServices;
+        public NewsArticleView(INewsArticleServices newsArticleServices, IAccountServices accountServices, ICategoryServices categoryServices)
         {
+            _newsArticleServices = newsArticleServices;
+            _accountServices = accountServices;
+            _categoryServices = categoryServices;
             InitializeComponent();
+            LoadData();
+        }
+
+        private async void LoadData()
+        {
+            DgNewsArticle.ItemsSource = await _newsArticleServices.GetAllArticle();
+        }
+
+        private void BtnCreate_OnClick(object sender, RoutedEventArgs e)
+        {
             if (StaticUserLogin.UserLogin?.AccountRole != 1)
             {
-                BtnCreate.Visibility = Visibility.Hidden;
-                BtnDelete.Visibility = Visibility.Hidden;
-                BtnUpdate.Visibility = Visibility.Hidden;
+                MessageBox.Show("You don't have permission to do this!!!",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, TxtNewsArticleId.Text);
+            if (dialog.ShowDialog() == true)
+            {
+                LoadData();
+            }
+        }
+
+        private void BtnUpdate_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (StaticUserLogin.UserLogin?.AccountRole != 1)
+            {
+                MessageBox.Show("You don't have permission to do this!!!",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            var selectedNews = (NewsArticle)DgNewsArticle.SelectedItem;
+            if (selectedNews == null)
+            {
+                MessageBox.Show("Please select a news article to update.");
+                return;
+            }
+
+            var dialog = new NewsArticleViewDialog(_newsArticleServices, _accountServices, _categoryServices, selectedNews.NewsArticleId);
+            if (dialog.ShowDialog() == true)
+            {
+                LoadData();
+            }
+        }
+
+        private async void BtnDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (StaticUserLogin.UserLogin?.AccountRole != 1)
+            {
+                MessageBox.Show("You don't have permission to do this!!!",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            var selectedNews = (NewsArticle)DgNewsArticle.SelectedItem;
+            if (selectedNews == null)
+            {
+                MessageBox.Show("Please select a news article to delete.");
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to delete this news article?", "Delete Confirmation",
+                    MessageBoxButton.YesNo) != MessageBoxResult.Yes) return;
+            
+            await _newsArticleServices.DeleteArticle(selectedNews.NewsArticleId);
+            LoadData();
+        }
+
+        private void DgNewsArticle_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var selectedNews = (NewsArticle)DgNewsArticle.SelectedItem;
+                if (selectedNews == null) return;
+
+                TxtNewsTitle.Text = selectedNews.NewsArticleId;
+                TxtNewsArticleId.Text = selectedNews.NewsTitle ?? "";
+                TxtNewsContent.Text = selectedNews.NewsContent ?? "";
+                TxtCategory.Text = selectedNews.Category?.CategoryName ?? "";
+                ChkNewsStatus.IsChecked = selectedNews.NewsStatus;
+                LbTags.ItemsSource = selectedNews.Tags;
+                TxtCreateBy.Text = selectedNews.CreatedBy?.AccountName ?? "";
+                TxtModifiedDate.Text = selectedNews.ModifiedDate.ToString() ?? "";
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
     }

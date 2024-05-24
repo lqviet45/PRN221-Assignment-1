@@ -30,7 +30,8 @@ public static class CategoryDao
     public static async Task<bool> UpdateAsync(Category category)
     {
         var context = new FunewsManagementDbContext();
-        context.Categories.Update(category);
+        context.Entry(category)
+            .State = EntityState.Modified;
 
         return await context.SaveChangesAsync() > 0;
     }

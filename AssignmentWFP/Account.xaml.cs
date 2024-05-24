@@ -120,7 +120,12 @@ namespace AssignmentWFP
                 TxtId.Text = selectedAccount.AccountId.ToString();
                 TxtUsername.Text = selectedAccount.AccountName ?? "";
                 TxtEmail.Text = selectedAccount.AccountEmail ?? "";
-                //CbRole.SelectedItem = selectedAccount.AccountRole.ToString();
+                CbRole.SelectedItem = selectedAccount.AccountRole switch
+                {
+                    1 => "Staff",
+                    2 => "Lecturer",
+                    _ => ""
+                };
             }
             catch (Exception exception)
             {

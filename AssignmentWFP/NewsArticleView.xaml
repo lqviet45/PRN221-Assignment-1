@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:AssignmentWFP"
         mc:Ignorable="d"
         Title="NewsArticle" Height="700" Width="800">
-    <Grid>
+    <Grid Height="700" Width="800">
         <Label Content="News Article Id" FontSize="16px" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="TxtNewsArticleId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="250"/>
+        <TextBox IsReadOnly="True" x:Name="TxtNewsArticleId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="250"/>
 
         <Label Content="Title" FontSize="16px" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="TxtNewsTitle" FontSize="16px" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="565"/>
+        <TextBox IsReadOnly="True" x:Name="TxtNewsTitle" FontSize="16px" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="565"/>
 
         <Label Content="Content" FontSize="16px" HorizontalAlignment="Left" Margin="14,96,0,0" VerticalAlignment="Top" />
-        <TextBox x:Name="TxtNewsContent" FontSize="16px" HorizontalAlignment="Left" Margin="150,96,0,0" VerticalAlignment="Top" Width="565" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+        <TextBox IsReadOnly="True" x:Name="TxtNewsContent" FontSize="16px" HorizontalAlignment="Left" Margin="150,96,0,0" VerticalAlignment="Top" Width="565" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
 
         <Label Content="Category" FontSize="16px" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" />
-        <ComboBox x:Name="CbCategory" HorizontalAlignment="Left" Margin="130,241,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox IsReadOnly="True" x:Name="TxtCategory" HorizontalAlignment="Left" Margin="130,241,0,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Tags" FontSize="16px" HorizontalAlignment="Left" Margin="452,235,0,0" VerticalAlignment="Top" />
-        <ListBox x:Name="LbTags" HorizontalAlignment="Left" Margin="515,235,0,0" VerticalAlignment="Top" Width="200" Height="100" SelectionMode="Multiple">
+        <ListBox x:Name="LbTags" HorizontalAlignment="Left" Margin="515,235,0,0" VerticalAlignment="Top" Width="200" Height="100" SelectionMode="Single">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding TagName}" IsChecked="{Binding IsSelected}" />
+                    <Label Content="{Binding TagName}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -32,28 +32,27 @@
         <CheckBox x:Name="ChkNewsStatus" HorizontalAlignment="Left" Margin="94,312,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Created By" FontSize="16px" HorizontalAlignment="Left" Margin="14,370,0,0" VerticalAlignment="Top" />
-        <ComboBox x:Name="CbCreatedBy" HorizontalAlignment="Left" Margin="130,374,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="TxtCreateBy" HorizontalAlignment="Left" Margin="130,374,0,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Modified Date" FontSize="16px" HorizontalAlignment="Left" Margin="382,370,0,0" VerticalAlignment="Top" />
         <TextBox x:Name="TxtModifiedDate" FontSize="16px" HorizontalAlignment="Left" Margin="515,374,0,0" VerticalAlignment="Top" Width="200"/>
 
-        <DataGrid x:Name="DgNewsArticle" AutoGenerateColumns="False" Margin="10,477,10,0" VerticalAlignment="Top">
+        <DataGrid MouseDoubleClick="DgNewsArticle_OnMouseDoubleClick" x:Name="DgNewsArticle" AutoGenerateColumns="False" 
+                  IsReadOnly="True" Margin="10,477,10,0" VerticalAlignment="Top">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding NewsArticleId}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding NewsArticleId}"/>
                 <DataGridTextColumn Header="Title" Binding="{Binding NewsTitle}"/>
                 <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate}"/>
-                <DataGridTextColumn Header="Content" Binding="{Binding NewsContent}"/>
                 <DataGridTextColumn Header="Category" Binding="{Binding Category.CategoryName}"/>
-                <DataGridTextColumn Header="Tags" Binding="{Binding Tags}" />
                 <DataGridCheckBoxColumn Header="Status" Binding="{Binding NewsStatus}"/>
                 <DataGridTextColumn Header="Created By" Binding="{Binding CreatedBy.AccountName}"/>
                 <DataGridTextColumn Header="Modified Date" Binding="{Binding ModifiedDate}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Content="Create" x:Name="BtnCreate" HorizontalAlignment="Left" Margin="10,614,0,0" VerticalAlignment="Top" Width="100" Click="BtnCreate_OnClick"/>
-        <Button Content="Update" x:Name="BtnUpdate" HorizontalAlignment="Left" Margin="120,614,0,0" VerticalAlignment="Top" Width="100" Click="BtnUpdate_OnClick"/>
-        <Button Content="Delete" x:Name="BtnDelete" HorizontalAlignment="Left" Margin="230,614,0,0" VerticalAlignment="Top" Width="100" Click="BtnDelete_OnClick"/>
+        <Button Content="Create" x:Name="BtnCreate" HorizontalAlignment="Left" Margin="10,650,0,0" VerticalAlignment="Top" Width="100" Click="BtnCreate_OnClick"/>
+        <Button Content="Update" x:Name="BtnUpdate" HorizontalAlignment="Left" Margin="120,650,0,0" VerticalAlignment="Top" Width="100" Click="BtnUpdate_OnClick"/>
+        <Button Content="Delete" x:Name="BtnDelete" HorizontalAlignment="Left" Margin="230,650,0,0" VerticalAlignment="Top" Width="100" Click="BtnDelete_OnClick"/>
 
         <Label Content="Search" FontSize="16px" HorizontalAlignment="Left" Margin="16,431,0,0" VerticalAlignment="Top" />
         <TextBox x:Name="TxtSearch" FontSize="16px" HorizontalAlignment="Left" Margin="94,435,0,0" VerticalAlignment="Top" Width="322"/>

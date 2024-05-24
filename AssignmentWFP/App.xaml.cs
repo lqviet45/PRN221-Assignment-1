@@ -26,6 +26,7 @@ public partial class App : Application
         collection.AddSingleton<INewsArticleServices, NewsArticleServices>();
         collection.AddSingleton<Login>();
         collection.AddSingleton<Account>();
+        collection.AddSingleton<NewsArticleView>();
         _serviceProvider = collection.BuildServiceProvider();
     }
 

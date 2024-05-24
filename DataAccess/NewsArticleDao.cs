@@ -34,7 +34,8 @@ public static class NewsArticleDao
     public static async Task<bool> UpdateAsync(NewsArticle newsArticle)
     {
         var context = new FunewsManagementDbContext();
-        context.Update(newsArticle);
+        context.Entry(newsArticle)
+            .State = EntityState.Modified;
 
         return await context.SaveChangesAsync() > 0;
     }
