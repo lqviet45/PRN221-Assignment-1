@@ -11,8 +11,9 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="BtnNews" Content="News Article" Width="100" Height="50" Margin="0,10,0,0" Click="BtnNews_OnClick"/>
-            <Button x:Name="BtnAccountView" Content="Accounts" Width="100" Height="50" Margin="20,10,0,0"/>
-            <Button x:Name="BtnProfile" Content="Profile" Width="100" Height="50" Margin="20,10,0,0"/>
+            <Button x:Name="BtnCategory" Content="Category" Width="100" Height="50" Margin="20,10,0,0" Click="BtnCategory_OnClick"/>
+            <Button x:Name="BtnAccountView" Content="Accounts" Width="100" Height="50" Margin="20,10,0,0" Click="BtnAccountView_OnClick"/>
+            <Button x:Name="BtnProfile" Content="Profile" Width="100" Height="50" Margin="20,10,0,0" Click="BtnProfile_OnClick"/>
             <Button x:Name="BtnLogout" Content="Logout" Width="100" Height="50" Margin="20,10,0,0" Click="BtnLogout_OnClick"/>
         </StackPanel>
     </Grid>

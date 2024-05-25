@@ -94,3 +94,9 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\ViewControl.g.cs
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\TagDialog.baml
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\ViewControl.baml
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\CategoryView.g.cs
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\CategoryView.baml
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\CategoryDialog.g.cs
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\CategoryDialog.baml
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\UserProfile.g.cs
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\obj\Debug\net8.0-windows\UserProfile.baml

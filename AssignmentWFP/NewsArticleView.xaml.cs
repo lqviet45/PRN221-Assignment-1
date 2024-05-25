@@ -139,6 +139,14 @@ namespace AssignmentWFP
 
         private void BtnControl_OnClick(object sender, RoutedEventArgs e)
         {
+            if (StaticUserLogin.UserLogin is null)
+            {
+                MessageBox.Show("You must login to use this!!",
+                    "Error",
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error);
+                return;
+            }
             _viewControl.Value.Show();
             this.Close();
         }

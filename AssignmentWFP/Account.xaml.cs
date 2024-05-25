@@ -23,10 +23,12 @@ namespace AssignmentWFP
     public partial class Account : Window
     {
         private readonly IAccountServices _accountServices;
-
-        public Account(IAccountServices accountServices)
+        private readonly Lazy<ViewControl> _viewControl;
+        
+        public Account(IAccountServices accountServices, Func<ViewControl> viewControlFunc)
         {
             _accountServices = accountServices;
+            _viewControl = new Lazy<ViewControl>(viewControlFunc);
             InitializeComponent();
             LoadData();
         }
@@ -138,6 +140,7 @@ namespace AssignmentWFP
         {
             e.Cancel = true;
             this.Visibility = Visibility.Hidden;
+            _viewControl.Value.Show();
         }
     }
 }

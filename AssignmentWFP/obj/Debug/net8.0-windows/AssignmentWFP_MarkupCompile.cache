@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\AssignmentWFP\App.xaml
-8-296863817
+10403796036
 
-11931058571
+131349590080
 248489098711
-Account.xaml;AccountDialog.xaml;CategoryView.xaml;Login.xaml;NewsArticleView.xaml;NewsArticleViewDialog.xaml;TagDialog.xaml;ViewControl.xaml;
+Account.xaml;AccountDialog.xaml;CategoryDialog.xaml;CategoryView.xaml;Login.xaml;NewsArticleView.xaml;NewsArticleViewDialog.xaml;TagDialog.xaml;UserProfile.xaml;ViewControl.xaml;
 
-True
+False
 
