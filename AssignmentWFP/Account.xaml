@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AssignmentWFP"
         xmlns:businessObject="clr-namespace:BusinessObject;assembly=BusinessObject"
         mc:Ignorable="d"
-        Title="Account" Height="450" Width="1000">
+        Title="Account" Height="450" Width="1000"
+        Closing="Account_OnClosing">
     <Grid>
         <Label Content="Id" FontSize="16px" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Height="31" Width="103" RenderTransformOrigin="0.508,0.659"/>
         <TextBox x:Name="TxtId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="174,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="33"/>

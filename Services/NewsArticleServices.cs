@@ -19,6 +19,11 @@ public class NewsArticleServices : INewsArticleServices
     {
         return await _articleRepository.GetAllArticle();
     }
+    
+    public async Task<IEnumerable<NewsArticle>> GetArticlesByTitle(string title)
+    {
+        return await _articleRepository.GetArticleByTitle(title);
+    }
 
     public async Task<NewsArticle?> GetArticleById(string id)
     {
@@ -27,7 +32,10 @@ public class NewsArticleServices : INewsArticleServices
 
     public async Task<NewsArticle?> AddArticle(NewsArticle article)
     {
+        article.CreatedDate = DateTime.Now;
+        article.ModifiedDate = null;
         var result = await _articleRepository.AddArticle(article);
+        
         
         return result ? article : null;
     }

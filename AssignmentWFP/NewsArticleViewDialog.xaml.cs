@@ -76,10 +76,8 @@ public partial class NewsArticleViewDialog : Window
                 NewsTitle = TxtNewsTitle.Text,
                 NewsContent = TxtNewsContent.Text,
                 CategoryId = selectedCategory.CategoryId,
-                Category = selectedCategory,
                 NewsStatus = ChkNewsStatus.IsChecked ?? false,
                 CreatedById = selectedAccount.AccountId,
-                CreatedBy = selectedAccount,
                 ModifiedDate = DateTime.Now,
                 Tags = selectedTags
             };

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using BusinessObject;
 using Services.abstraction;
 
@@ -63,5 +64,11 @@ public partial class Login : Window
     private void BtnViewNews_Click(object sender, RoutedEventArgs e)
     {
         _newsArticleView.ShowDialog();
+    }
+
+    private void Login_OnClosing(object? sender, CancelEventArgs e)
+    {
+        e.Cancel = true;
+        this.Visibility = Visibility.Hidden;
     }
 }

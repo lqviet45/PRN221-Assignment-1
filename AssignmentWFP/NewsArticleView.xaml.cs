@@ -26,12 +26,14 @@ namespace AssignmentWFP
         private readonly IAccountServices _accountServices;
         private readonly ICategoryServices _categoryServices;
         private readonly ITagServices _tagServices;
-        public NewsArticleView(INewsArticleServices newsArticleServices, IAccountServices accountServices, ICategoryServices categoryServices, ITagServices tagServices)
+        private readonly Lazy<ViewControl> _viewControl;
+        public NewsArticleView(INewsArticleServices newsArticleServices, IAccountServices accountServices, ICategoryServices categoryServices, ITagServices tagServices, Func<ViewControl> viewControlFactory)
         {
             _newsArticleServices = newsArticleServices;
             _accountServices = accountServices;
             _categoryServices = categoryServices;
             _tagServices = tagServices;
+            _viewControl = new Lazy<ViewControl>(viewControlFactory);
             InitializeComponent();
             LoadData();
         }
@@ -126,6 +128,19 @@ namespace AssignmentWFP
         {
             e.Cancel = true;
             this.Visibility = Visibility.Hidden;
+        }
+
+        private async void BtnSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+            var searchString = TxtSearch.Text;
+            var list = await _newsArticleServices.GetArticlesByTitle(searchString);
+            DgNewsArticle.ItemsSource = list;
+        }
+
+        private void BtnControl_OnClick(object sender, RoutedEventArgs e)
+        {
+            _viewControl.Value.Show();
+            this.Close();
         }
     }
 }

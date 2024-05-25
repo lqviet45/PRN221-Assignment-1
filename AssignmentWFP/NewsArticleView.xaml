@@ -10,6 +10,7 @@
     <Grid Height="700" Width="800">
         <Label Content="News Article Id" FontSize="16px" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
         <TextBox IsReadOnly="True" x:Name="TxtNewsArticleId" IsEnabled="False" FontSize="16px" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="250"/>
+        <Button x:Name="BtnControl" Content="To Control" Margin="650,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100" Click="BtnControl_OnClick"/>
 
         <Label Content="Title" FontSize="16px" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top" />
         <TextBox IsReadOnly="True" x:Name="TxtNewsTitle" FontSize="16px" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="565"/>
@@ -57,5 +58,6 @@
 
         <Label Content="Search" FontSize="16px" HorizontalAlignment="Left" Margin="16,431,0,0" VerticalAlignment="Top" />
         <TextBox x:Name="TxtSearch" FontSize="16px" HorizontalAlignment="Left" Margin="94,435,0,0" VerticalAlignment="Top" Width="322"/>
+        <Button x:Name="BtnSearch" Content="Search" HorizontalAlignment="Left" Margin="450,435,0,0" VerticalAlignment="Top" Width="100" Click="BtnSearch_OnClick" />
     </Grid>
 </Window>

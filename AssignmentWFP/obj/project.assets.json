@@ -3317,6 +3317,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "BusinessObject >= 1.0.0",
+      "Microsoft.Extensions.DependencyInjection >= 8.0.0",
       "Services >= 1.0.0"
     ]
   },
@@ -3365,6 +3366,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

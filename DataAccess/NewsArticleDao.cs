@@ -26,7 +26,8 @@ public static class NewsArticleDao
     public static async Task<bool> AddAsync(NewsArticle newsArticle)
     {
         var context = new FunewsManagementDbContext();
-        newsArticle.NewsArticleId = Guid.NewGuid().ToString();
+        var max = await context.NewsArticles.MaxAsync(n => n.NewsArticleId);
+        newsArticle.NewsArticleId = (int.Parse(max) + 1).ToString();
         
         context.Add(newsArticle);
 
@@ -36,8 +37,10 @@ public static class NewsArticleDao
     public static async Task<bool> UpdateAsync(NewsArticle newsArticle)
     {
         var context = new FunewsManagementDbContext();
+        
         context.Entry(newsArticle)
             .State = EntityState.Modified;
+        
 
         return await context.SaveChangesAsync() > 0;
     }

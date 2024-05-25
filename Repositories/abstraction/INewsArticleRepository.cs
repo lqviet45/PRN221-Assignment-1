@@ -5,6 +5,8 @@ namespace Repositories.abstraction;
 public interface INewsArticleRepository
 {
     public Task<IEnumerable<NewsArticle>> GetAllArticle();
+
+    public Task<IEnumerable<NewsArticle>> GetArticleByTitle(string title);
     
     public Task<NewsArticle?> GetArticleById(string id);
 

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AssignmentWFP"
         mc:Ignorable="d"
         Title="ViewControl" Height="200" Width="800"
-        Loaded="ViewControl_OnLoaded">
+        Loaded="ViewControl_OnLoaded"
+        Closing="ViewControl_OnClosing">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="BtnNews" Content="News Article" Width="100" Height="50" Margin="0,10,0,0" Click="BtnNews_OnClick"/>

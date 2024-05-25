@@ -6,15 +6,15 @@ namespace AssignmentWFP;
 
 public partial class ViewControl : Window
 {
-    private readonly Account _accountView;
-    private readonly NewsArticleView _newsArticleView;
-    private readonly Login _login;
+    private readonly Lazy<Account> _accountView;
+    private readonly Lazy<NewsArticleView> _newsArticleView;
+    private readonly Lazy<Login> _login;
 
-    public ViewControl(Account accountView, NewsArticleView newsArticleView, Login login)
+    public ViewControl(Func<Account> accountViewFunc, Func<NewsArticleView> newsArticleViewFunc, Func<Login> loginFunc)
     {
-        _accountView = accountView;
-        _newsArticleView = newsArticleView;
-        _login = login;
+        _accountView = new Lazy<Account>(accountViewFunc);
+        _newsArticleView = new Lazy<NewsArticleView>(newsArticleViewFunc);
+        _login = new Lazy<Login>(loginFunc);
         InitializeComponent();
     }
 
@@ -37,19 +37,25 @@ public partial class ViewControl : Window
 
     private void BtnNews_OnClick(object sender, RoutedEventArgs e)
     {
-        _newsArticleView.ShowDialog();
-        this.Hide();
+        _newsArticleView.Value.Show();
+        this.Close();
     }
 
     private void BtnLogout_OnClick(object sender, RoutedEventArgs e)
     {
         StaticUserLogin.UserLogin = null;
-        _login.Show();
+        _login.Value.Show();
         this.Close();
     }
 
     private void ViewControl_OnLoaded(object sender, RoutedEventArgs e)
     {
         LoadData();
+    }
+
+    private void ViewControl_OnClosing(object? sender, CancelEventArgs e)
+    {
+        e.Cancel = true;
+        this.Visibility = Visibility.Hidden;
     }
 }

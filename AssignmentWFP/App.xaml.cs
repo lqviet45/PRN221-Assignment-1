@@ -18,17 +18,24 @@ public partial class App : Application
     public App()
     {
         IServiceCollection collection = new ServiceCollection();
-        collection.AddSingleton<ICategoryRepository, CategoryRepository>();
+        collection.AddScoped<ICategoryRepository, CategoryRepository>();
         collection.AddSingleton<ICategoryServices, CategoryServices>();
-        collection.AddSingleton<IAccountRepository, AccountRepository>();
+        collection.AddScoped<IAccountRepository, AccountRepository>();
         collection.AddSingleton<IAccountServices, AccountServices>();
-        collection.AddSingleton<INewsArticleRepository, NewsArticleRepository>();
+        collection.AddScoped<INewsArticleRepository, NewsArticleRepository>();
         collection.AddSingleton<INewsArticleServices, NewsArticleServices>();
-        collection.AddSingleton<ITagRepository, TagRepository>();
+        collection.AddScoped<ITagRepository, TagRepository>();
         collection.AddSingleton<ITagServices, TagServices>();
         collection.AddSingleton<Login>();
         collection.AddSingleton<Account>();
         collection.AddSingleton<NewsArticleView>();
+        collection.AddSingleton<ViewControl>();
+        
+        collection.AddTransient<Func<ViewControl>>(provider => provider.GetRequiredService<ViewControl>);
+        collection.AddTransient<Func<NewsArticleView>>(provider => provider.GetRequiredService<NewsArticleView>);
+        collection.AddTransient<Func<Account>>(provider => provider.GetRequiredService<Account>);
+        collection.AddTransient<Func<Login>>(provider => provider.GetRequiredService<Login>);
+        
         _serviceProvider = collection.BuildServiceProvider();
     }
 
