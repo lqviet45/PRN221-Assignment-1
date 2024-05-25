@@ -32,6 +32,7 @@ public partial class App : Application
         collection.AddSingleton<ViewControl>();
         collection.AddSingleton<CategoryView>();
         collection.AddSingleton<UserProfile>();
+        collection.AddSingleton<NewsHistory>();
         
         collection.AddTransient<Func<ViewControl>>(provider => provider.GetRequiredService<ViewControl>);
         collection.AddTransient<Func<NewsArticleView>>(provider => provider.GetRequiredService<NewsArticleView>);
@@ -39,6 +40,7 @@ public partial class App : Application
         collection.AddTransient<Func<Login>>(provider => provider.GetRequiredService<Login>);
         collection.AddTransient<Func<CategoryView>>(provider => provider.GetRequiredService<CategoryView>);
         collection.AddTransient<Func<UserProfile>>(provider => provider.GetRequiredService<UserProfile>);
+        collection.AddTransient<Func<NewsHistory>>(provider => provider.GetRequiredService<NewsHistory>);
         
         _serviceProvider = collection.BuildServiceProvider();
     }

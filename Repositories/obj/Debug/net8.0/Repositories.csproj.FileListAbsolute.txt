@@ -10,9 +10,9 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfoInputs.cache
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfo.cs
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.csproj.CoreCompileInputs.cache
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Reposito.787EC4B2.Up2Date
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\ref\Repositories.dll
-E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json

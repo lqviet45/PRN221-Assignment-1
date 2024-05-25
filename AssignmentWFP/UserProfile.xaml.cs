@@ -9,11 +9,14 @@ public partial class UserProfile : Window
 {
     private readonly IAccountServices _accountServices;
     private readonly Lazy<ViewControl> _viewControl;
+    private readonly Lazy<NewsHistory> _news;
     
-    public UserProfile(IAccountServices accountServices, Func<ViewControl> viewControlFunc)
+    public UserProfile(IAccountServices accountServices, Func<ViewControl> viewControlFunc,
+        Func<NewsHistory> newsFunc)
     {
         _accountServices = accountServices;
         _viewControl = new Lazy<ViewControl>(viewControlFunc);
+        _news = new Lazy<NewsHistory>(newsFunc);
         InitializeComponent();
         LoadData();
     }
@@ -77,5 +80,10 @@ public partial class UserProfile : Window
         e.Cancel = true;
         this.Visibility = Visibility.Hidden;
         _viewControl.Value.Show();
+    }
+
+    private void BtnNewsHistory_OnClick(object sender, RoutedEventArgs e)
+    {
+        _news.Value.Show();
     }
 }

@@ -25,6 +25,11 @@ public class NewsArticleServices : INewsArticleServices
         return await _articleRepository.GetArticleByTitle(title);
     }
 
+    public async Task<IEnumerable<NewsArticle>> GetArticlesByUserId(short id)
+    {
+        return await _articleRepository.GetArticleByUserId(id);
+    }
+
     public async Task<NewsArticle?> GetArticleById(string id)
     {
         return await _articleRepository.GetArticleById(id);

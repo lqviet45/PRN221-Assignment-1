@@ -12,9 +12,9 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Ser
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.AssemblyInfoInputs.cache
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.sourcelink.json
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\refint\Services.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\ref\Services.dll
-E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\Services\obj\Debug\net8.0\Services.sourcelink.json

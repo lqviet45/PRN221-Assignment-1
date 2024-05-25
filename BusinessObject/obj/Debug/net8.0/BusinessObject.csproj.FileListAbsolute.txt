@@ -7,9 +7,9 @@ E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfoInputs.cache
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfo.cs
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.csproj.CoreCompileInputs.cache
+E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.sourcelink.json
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\refint\BusinessObject.dll
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.pdb
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.genruntimeconfig.cache
 E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\ref\BusinessObject.dll
-E:\FPTU\2024_7_SUMMER\PRN221\Assignment\Assignment\BusinessObject\obj\Debug\net8.0\BusinessObject.sourcelink.json

@@ -41,6 +41,6 @@
             <Button Content="Save" Width="100" Height="30" Margin="5" Click="BtnSave_Click"/>
             <Button Content="Cancel" Width="100" Height="30" Margin="5" Click="BtnCancel_Click"/>
         </StackPanel>
-        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"  Content="View My News" Width="100" Height="30" Margin="5"/>
+        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"  Content="View My News" Width="100" Height="30" Margin="5" Click="BtnNewsHistory_OnClick"/>
     </Grid>
 </Window>
