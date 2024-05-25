@@ -142,5 +142,11 @@ namespace AssignmentWFP
             this.Visibility = Visibility.Hidden;
             _viewControl.Value.Show();
         }
+
+        private void BtnView_OnClick(object sender, RoutedEventArgs e)
+        {
+            _viewControl.Value.Show();
+            this.Close();
+        }
     }
 }
