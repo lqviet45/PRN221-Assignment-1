@@ -3136,11 +3136,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj",
+      "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\obj\\",
+      "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3157,8 +3157,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj"
+            "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj"
             }
           }
         }

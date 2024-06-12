@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.Extensions.Configuration;
 using Repositories.abstraction;
 using Services.abstraction;
 
@@ -8,16 +9,43 @@ public class AccountServices : IAccountServices
 {
     private readonly IAccountRepository _accountRepository;
     private readonly INewsArticleServices _newsArticleServices;
+    private readonly IConfiguration _configuration;
 
-    public AccountServices(IAccountRepository accountRepository, INewsArticleServices newsArticleServices)
+    public AccountServices(IAccountRepository accountRepository, INewsArticleServices newsArticleServices, IConfiguration configuration)
     {
         _accountRepository = accountRepository;
         _newsArticleServices = newsArticleServices;
+        _configuration = configuration;
     }
 
     public async Task<SystemAccount?> Login(string username, string password)
     {
         return await _accountRepository.GetAccountByUsernameAndPassword(username, password).ConfigureAwait(false);
+    }
+    
+    public async Task<SystemAccount> LoginRazor(string username, string password)
+    {
+        var adminUsername = _configuration.GetSection("AdminAccount:Username").Value;
+        var adminPassword = _configuration.GetSection("AdminAccount:Password").Value;
+        
+        if (username == adminUsername && password == adminPassword)
+        {
+            return new SystemAccount()
+            {
+                AccountEmail = username,
+                AccountName = "admin",
+                AccountRole = 3
+            };
+        }
+        
+        var account = await _accountRepository.GetAccountByUsernameAndPasswordRazor(username, password).ConfigureAwait(false);
+
+        if (account is null)
+        {
+            throw new ArgumentNullException(nameof(account), "Username or password is incorrect!!");
+        }
+        
+        return account;
     }
 
     public async Task<IEnumerable<SystemAccount>> GetAllAccount()

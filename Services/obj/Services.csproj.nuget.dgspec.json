@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\Services.csproj": {}
+    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\Services.csproj": {}
   },
   "projects": {
-    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj": {
+    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\obj\\",
+        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -75,14 +75,14 @@
         }
       }
     },
-    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj": {
+    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj",
+        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\obj\\",
+        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -99,8 +99,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj"
+              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -134,14 +134,14 @@
         }
       }
     },
-    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\Repositories.csproj": {
+    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\Repositories.csproj",
+        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\obj\\",
+        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,11 +158,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj"
+              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj"
               },
-              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj"
+              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -196,14 +196,14 @@
         }
       }
     },
-    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\Services.csproj": {
+    "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\Services.csproj",
+        "projectUniqueName": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\Services.csproj",
+        "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\obj\\",
+        "outputPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -220,11 +220,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj"
+              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj"
               },
-              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\Repositories.csproj": {
-                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Repositories\\Repositories.csproj"
+              "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\Repositories.csproj": {
+                "projectPath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Repositories\\Repositories.csproj"
               }
             }
           }

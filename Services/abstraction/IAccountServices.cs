@@ -5,6 +5,8 @@ namespace Services.abstraction;
 public interface IAccountServices
 {
     public Task<SystemAccount?> Login(string username, string password);
+    
+    public Task<SystemAccount> LoginRazor(string username, string password);
 
     public Task<IEnumerable<SystemAccount>> GetAllAccount();
     

@@ -29,6 +29,16 @@ public static class AccountDao
 
         return userAccount;
     }
+    
+    public static async Task<SystemAccount?> GetAccountByUsernameAndPasswordRazor(string username, string password)
+    {
+        var context = new FunewsManagementDbContext();
+        var userAccount = await context.SystemAccounts
+            .Where(a => a.AccountEmail == username && a.AccountPassword == password)
+            .FirstOrDefaultAsync();
+
+        return userAccount;
+    }
 
     public static IQueryable<SystemAccount> GetAll()
     {

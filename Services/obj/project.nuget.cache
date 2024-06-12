@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xJpJYiXrBPV2qwDRfVYOA0C7hHpolwTOfVT+ZPitmWr64iaxnx/M75tOLUS6VDFgPC5UNYhhgb03WKKpr99SKw==",
+  "dgSpecHash": "yJFLlcOKbONhoRcnjWqiovTrGAwW++jJef8GgIKLFA+q1k9cKwovJPphIFlSYIYKxl/IA5CMAc6isTLEK921pQ==",
   "success": true,
-  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\Services\\Services.csproj",
+  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

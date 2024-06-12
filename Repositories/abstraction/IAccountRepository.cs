@@ -8,6 +8,8 @@ public interface IAccountRepository
     public Task<SystemAccount?> GetAccountById(short id);
 
     public Task<SystemAccount?> GetAccountByUsernameAndPassword(string username, string password);
+    
+    public Task<SystemAccount?> GetAccountByUsernameAndPasswordRazor(string username, string password);
 
     public Task<bool> AddAccount(SystemAccount category);
 

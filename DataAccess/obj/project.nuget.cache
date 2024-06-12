@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KS3PI/Y8pg9DjxyT/yoJoBzSHDcZcxZzomQzweytFXPX9NAS0uSWELP6hvzgdrgTxMqs597K+sw5VoLfDc1UpQ==",
+  "dgSpecHash": "MJmRbvyYBR8Lp7YZiGCm7tVOen5TYL3Eq3yssCixVUV9JGKj4Xf6pj5c5zPUE3TDNiupZtHEEKefuT1jqH4ALA==",
   "success": true,
-  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

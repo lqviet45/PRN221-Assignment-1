@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "88LnC+YXIOl2QD388Ueh83ZfTk4Ev/oLP2OuINNQr2aoNT7XtFuC1vWn5zFy1GMzEI57Yw7Mu1ase2/tLJePAg==",
+  "dgSpecHash": "MQqngFQaycTDB1kk4DlQXFRRZtBUKfJIIg7lirHwOjYCHe1Z5cnW+XjHhi8Mb7hdiZNI7q/Kp07CSxzASaIH5g==",
   "success": true,
-  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\Assignment\\BusinessObject\\BusinessObject.csproj",
+  "projectFilePath": "E:\\FPTU\\2024_7_SUMMER\\PRN221\\Assignment\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
