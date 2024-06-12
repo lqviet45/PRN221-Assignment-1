@@ -56,6 +56,11 @@ public class CategoryServices : ICategoryServices
             return false;
         }
         
+        if (existCategory.NewsArticles.Count > 0)
+        {
+            return false;
+        }
+        
         var isSuccess = await _categoryRepository.DeleteCategory(existCategory).ConfigureAwait(false);
 
         return isSuccess;

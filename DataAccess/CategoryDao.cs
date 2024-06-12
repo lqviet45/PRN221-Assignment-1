@@ -16,7 +16,9 @@ public static class CategoryDao
     {
         var context = new FunewsManagementDbContext();
 
-        return await context.Categories.SingleOrDefaultAsync(c => c.CategoryId == id);
+        return await context.Categories
+            .Include(c => c.NewsArticles)
+            .SingleOrDefaultAsync(c => c.CategoryId == id);
     }
 
     public static async Task<bool> AddAsync(Category category)

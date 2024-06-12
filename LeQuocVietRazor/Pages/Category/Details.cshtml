@@ -3,6 +3,16 @@
 
 @{
     ViewData["Title"] = "Details";
+    var role = HttpContext.Session.GetString("Role");
+    
+    if (role == null)
+    {
+        Response.Redirect("/user/Login");
+    }
+    else if (int.Parse(role) != 1)
+    {
+        Response.Redirect("/news/Index");
+    }
 }
 
 <h1>Details</h1>
