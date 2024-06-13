@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -25,6 +28,21 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                     </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    @if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext?.Session.GetString("AccountId")))
+                    {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/user/Login">Login</a>
+                            </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/user/Logout">Logout</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

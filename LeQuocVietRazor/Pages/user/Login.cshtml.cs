@@ -21,11 +21,11 @@ public class Login : PageModel
         _accountServices = accountServices;
     }
     
-    public void OnPostAsync()
+    public async Task OnPostAsync()
     {
         try
         {
-            var account = _accountServices.LoginRazor(Username, Password).Result;
+            var account = await _accountServices.LoginRazor(Username, Password);
         
             HttpContext.Session.SetString("AccountId", account.AccountId.ToString());
             HttpContext.Session.SetString("AccountEmail", account.AccountEmail!);
@@ -34,7 +34,7 @@ public class Login : PageModel
             // Response.Cookies.Append("AccountName", account.AccountName);
             // Response.Cookies.Append("AccountRole", account.AccountRole.ToString());
             
-            Response.Redirect("/user/Account");
+            Response.Redirect("/user/index");
         }
         catch (Exception e)
         {
