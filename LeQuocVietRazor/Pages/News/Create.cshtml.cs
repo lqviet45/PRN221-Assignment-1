@@ -1,28 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BusinessObject;
-using DataAccess;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.News
 {
     public class CreateModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly INewsArticleServices _newsArticleServices;
+        private readonly IAccountServices _accountServices;
+        private readonly ICategoryServices _categoryServices;
 
-        public CreateModel(DataAccess.FunewsManagementDbContext context)
+        public CreateModel(INewsArticleServices newsArticleServices, ICategoryServices categoryServices, IAccountServices accountServices)
         {
-            _context = context;
+            _newsArticleServices = newsArticleServices;
+            _categoryServices = categoryServices;
+            _accountServices = accountServices;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDesciption");
-        ViewData["CreatedById"] = new SelectList(_context.SystemAccounts, "AccountId", "AccountId");
+            ViewData["CategoryId"] = new SelectList(await _categoryServices.GetAllCategory(), "CategoryId", "CategoryName");
+            ViewData["CreatedById"] = new SelectList(await _accountServices.GetAllAccount(), "AccountId", "AccountName");
             return Page();
         }
 
@@ -32,15 +32,23 @@ namespace LeQuocVietRazor.Pages.News
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            try
             {
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+
+                await _newsArticleServices.AddArticle(NewsArticle);
+
+                return RedirectToPage("./Index");
+
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Error", e.Message);
                 return Page();
             }
-
-            _context.NewsArticles.Add(NewsArticle);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
         }
     }
 }

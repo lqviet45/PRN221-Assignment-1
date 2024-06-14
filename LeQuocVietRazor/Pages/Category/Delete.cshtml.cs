@@ -1,20 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.Category
 {
     public class DeleteModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly ICategoryServices _categoryServices;
 
-        public DeleteModel(DataAccess.FunewsManagementDbContext context)
+        public DeleteModel(ICategoryServices categoryServices)
         {
-            _context = context;
+            _categoryServices = categoryServices;
         }
 
         [BindProperty]
         public BusinessObject.Category Category { get; set; } = default!;
+        
+        public string Message { get; set; } = string.Empty;
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -23,8 +26,7 @@ namespace LeQuocVietRazor.Pages.Category
                 return NotFound();
             }
 
-            var category = await _context.Categories.FirstOrDefaultAsync(m => m.CategoryId == id);
-
+            var category = await _categoryServices.GetCategoryById(id.Value);
             if (category == null)
             {
                 return NotFound();
@@ -43,13 +45,19 @@ namespace LeQuocVietRazor.Pages.Category
                 return NotFound();
             }
 
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+            var category = await _categoryServices.GetCategoryById(id.Value);
+            if (category == null) return RedirectToPage("./Index");
+
+            if (category.NewsArticles.Count > 0)
             {
-                Category = category;
-                _context.Categories.Remove(Category);
-                await _context.SaveChangesAsync();
+                ModelState.AddModelError(string.Empty, "Category has news articles, can't delete!!");
+                Message = "Category has news articles, can't delete!!";
+                return Page();
             }
+            
+            Category = category;
+            await _categoryServices.DeleteCategory(Category.CategoryId);
+            Message = "Delete successfully!!";
 
             return RedirectToPage("./Index");
         }

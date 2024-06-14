@@ -1,6 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
+@{
+    var accountId = HttpContextAccessor.HttpContext?.Session.GetString("AccountId");
+    var role = HttpContextAccessor.HttpContext?.Session.GetString("Role");
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +20,14 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">LeQuocVietRazor</a>
+            @if (string.IsNullOrEmpty(accountId))
+            {
+                <a class="navbar-brand" asp-area="" asp-page="/Index">LeQuocVietRazor</a>
+            }
+            else
+            {
+                <a class="navbar-brand" asp-area="" asp-page="/news/index" asp-route-id="@accountId">LeQuocVietRazor</a>
+            }
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,22 +35,38 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/news/index">News</a>
                     </li>
+                    @switch (role)
+                    {
+                        case "1":
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Category/Index">Category</a>
+                        </li>
+                            break;
+                        case "3":
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/user/index">Account</a>
+                        </li>
+                            break;
+                    }
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
-                    @if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext?.Session.GetString("AccountId")))
+                    @if (string.IsNullOrEmpty(accountId))
                     {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/user/Login">Login</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/user/Login">Login</a>
+                        </li>
                     }
                     else
                     {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/user/Edit" asp-route-id="@accountId">Profile</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/user/Logout">Logout</a>
                         </li>

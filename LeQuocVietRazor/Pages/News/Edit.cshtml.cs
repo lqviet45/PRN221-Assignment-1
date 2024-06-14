@@ -8,16 +8,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
 using DataAccess;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.News
 {
     public class EditModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly INewsArticleServices _newsArticleServices;
+        private readonly ICategoryServices _categoryServices;
+        private readonly IAccountServices _accountServices;
 
-        public EditModel(DataAccess.FunewsManagementDbContext context)
+        public EditModel(INewsArticleServices newsArticleServices, ICategoryServices categoryServices, IAccountServices accountServices)
         {
-            _context = context;
+            _newsArticleServices = newsArticleServices;
+            _categoryServices = categoryServices;
+            _accountServices = accountServices;
         }
 
         [BindProperty]
@@ -30,14 +35,14 @@ namespace LeQuocVietRazor.Pages.News
                 return NotFound();
             }
 
-            var newsarticle =  await _context.NewsArticles.FirstOrDefaultAsync(m => m.NewsArticleId == id);
+            var newsarticle =  await _newsArticleServices.GetArticleById(id);
             if (newsarticle == null)
             {
                 return NotFound();
             }
             NewsArticle = newsarticle;
-           ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDesciption");
-           ViewData["CreatedById"] = new SelectList(_context.SystemAccounts, "AccountId", "AccountId");
+            ViewData["CategoryId"] = new SelectList(await _categoryServices.GetAllCategory(), "CategoryId", "CategoryName");
+            ViewData["CreatedById"] = new SelectList(await _accountServices.GetAllAccount(), "AccountId", "AccountName");
             return Page();
         }
 
@@ -50,30 +55,26 @@ namespace LeQuocVietRazor.Pages.News
                 return Page();
             }
 
-            _context.Attach(NewsArticle).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _newsArticleServices.UpdateArticle(NewsArticle);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
-                if (!NewsArticleExists(NewsArticle.NewsArticleId))
+                if (!await NewsArticleExists(NewsArticle.NewsArticleId))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError("Error", e.Message);
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool NewsArticleExists(string id)
+        private async Task<bool> NewsArticleExists(string id)
         {
-            return _context.NewsArticles.Any(e => e.NewsArticleId == id);
+            return await _newsArticleServices.GetArticleById(id) != null;
         }
     }
 }

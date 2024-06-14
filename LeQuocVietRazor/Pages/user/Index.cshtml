@@ -3,12 +3,21 @@
 
 @{
     ViewData["Title"] = "Index";
+    var role = HttpContext.Session.GetString("Role");
+    if (role == null)
+    {
+        Response.Redirect("/user/Login");
+    }
+    else if (int.Parse(role) != 3)
+    {
+        Response.Redirect("/news/Index");
+    }
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Register">Create New</a>
+    <a asp-page="Register">Create New Account</a>
 </p>
 <table class="table">
     <thead>
@@ -56,7 +65,6 @@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AccountId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AccountId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.AccountId">Delete</a>
             </td>
         </tr>

@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
 using DataAccess;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.News
 {
     public class DeleteModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly INewsArticleServices _newsArticleServices;
 
-        public DeleteModel(DataAccess.FunewsManagementDbContext context)
+        public DeleteModel(INewsArticleServices newsArticleServices)
         {
-            _context = context;
+            _newsArticleServices = newsArticleServices;
         }
 
         [BindProperty]
@@ -29,7 +30,7 @@ namespace LeQuocVietRazor.Pages.News
                 return NotFound();
             }
 
-            var newsarticle = await _context.NewsArticles.FirstOrDefaultAsync(m => m.NewsArticleId == id);
+            var newsarticle = await _newsArticleServices.GetArticleById(id);
 
             if (newsarticle == null)
             {
@@ -44,20 +45,27 @@ namespace LeQuocVietRazor.Pages.News
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var newsarticle = await _context.NewsArticles.FindAsync(id);
-            if (newsarticle != null)
+                var newsarticle = await _newsArticleServices.GetArticleById(id);
+                if (newsarticle != null)
+                {
+                    NewsArticle = newsarticle;
+                    await _newsArticleServices.DeleteArticle(NewsArticle.NewsArticleId);
+                }
+
+                return RedirectToPage("./Index");
+            }
+            catch (Exception e)
             {
-                NewsArticle = newsarticle;
-                _context.NewsArticles.Remove(NewsArticle);
-                await _context.SaveChangesAsync();
+                ModelState.AddModelError("Error", e.Message);
+                return Page();
             }
-
-            return RedirectToPage("./Index");
         }
     }
 }

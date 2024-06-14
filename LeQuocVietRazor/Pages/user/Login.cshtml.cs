@@ -34,7 +34,18 @@ public class Login : PageModel
             // Response.Cookies.Append("AccountName", account.AccountName);
             // Response.Cookies.Append("AccountRole", account.AccountRole.ToString());
             
-            Response.Redirect("/user/index");
+            switch (account.AccountRole)
+            {
+                case 3:
+                    Response.Redirect("/user/index");
+                    break;
+                case 1:
+                    Response.Redirect("/category/index");
+                    break;
+                case 2:
+                    Response.Redirect("/news/index");
+                    break;
+            }
         }
         catch (Exception e)
         {

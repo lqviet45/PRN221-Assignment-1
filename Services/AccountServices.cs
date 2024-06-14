@@ -42,7 +42,7 @@ public class AccountServices : IAccountServices
 
         if (account is null)
         {
-            throw new ArgumentNullException(nameof(account), "Username or password is incorrect!!");
+            throw new ArgumentException("Username or password is incorrect!!");
         }
         
         return account;

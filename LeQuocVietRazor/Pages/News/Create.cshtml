@@ -4,6 +4,16 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+    var role = HttpContext.Session.GetString("Role");
+    
+    if (role == null)
+    {
+        Response.Redirect("/user/Login");
+    }
+    else if (int.Parse(role) != 1)
+    {
+        Response.Redirect("/news/Index");
+    }
 }
 
 <h1>Create</h1>
@@ -24,11 +34,7 @@
                 <input asp-for="NewsArticle.NewsTitle" class="form-control" />
                 <span asp-validation-for="NewsArticle.NewsTitle" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NewsArticle.CreatedDate" class="control-label"></label>
-                <input asp-for="NewsArticle.CreatedDate" class="form-control" />
-                <span asp-validation-for="NewsArticle.CreatedDate" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="NewsArticle.NewsContent" class="control-label"></label>
                 <input asp-for="NewsArticle.NewsContent" class="form-control" />
@@ -40,18 +46,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="NewsArticle.NewsStatus" class="control-label"></label>
-                <input asp-for="NewsArticle.NewsStatus" class="form-control" />
+                <select asp-for="NewsArticle.NewsStatus" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
                 <span asp-validation-for="NewsArticle.NewsStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NewsArticle.CreatedById" class="control-label"></label>
                 <select asp-for="NewsArticle.CreatedById" class ="form-control" asp-items="ViewBag.CreatedById"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="NewsArticle.ModifiedDate" class="control-label"></label>
-                <input asp-for="NewsArticle.ModifiedDate" class="form-control" />
-                <span asp-validation-for="NewsArticle.ModifiedDate" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

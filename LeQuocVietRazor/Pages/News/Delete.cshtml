@@ -4,6 +4,16 @@
 @{
     ViewData["Title"] = "Delete";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+    var role = HttpContext.Session.GetString("Role");
+    
+    if (role == null)
+    {
+        Response.Redirect("/user/Login");
+    }
+    else if (int.Parse(role) != 1)
+    {
+        Response.Redirect("/news/Index");
+    }
 }
 
 <h1>Delete</h1>
@@ -57,9 +67,17 @@
         </dd>
     </dl>
     
-    <form method="post">
-        <input type="hidden" asp-for="NewsArticle.NewsArticleId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <form method="post" onsubmit="return confirmDelete();">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="NewsArticle.NewsArticleId"/>
+        <input type="submit" value="Delete" class="btn btn-danger"/> |
         <a asp-page="./Index">Back to List</a>
     </form>
 </div>
+@section Scripts {
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this article?');
+        }
+    </script>
+}

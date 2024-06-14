@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+    var role = HttpContext.Session.GetString("Role");
 }
 
 <h1>Index</h1>
@@ -62,11 +63,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedBy.AccountName)
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.NewsArticleId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.NewsArticleId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.NewsArticleId">Delete</a>
-            </td>
+                @if(role == "1")
+                {
+                    <td>
+                
+                        <a asp-page="./Edit" asp-route-id="@item.NewsArticleId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.NewsArticleId">Details</a> | 
+                        <a asp-page="./Delete" asp-route-id="@item.NewsArticleId">Delete</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.NewsArticleId">Details</a>
+                    </td>
+                }
         </tr>
 }
     </tbody>

@@ -7,25 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
 using DataAccess;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.News
 {
     public class IndexModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly INewsArticleServices _newsArticleServices;
 
-        public IndexModel(DataAccess.FunewsManagementDbContext context)
+        public IndexModel(INewsArticleServices newsArticleServices)
         {
-            _context = context;
+            _newsArticleServices = newsArticleServices;
         }
 
         public IList<NewsArticle> NewsArticle { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            NewsArticle = await _context.NewsArticles
-                .Include(n => n.Category)
-                .Include(n => n.CreatedBy).ToListAsync();
+            NewsArticle = (await _newsArticleServices.GetAllArticle()).ToList();
         }
     }
 }

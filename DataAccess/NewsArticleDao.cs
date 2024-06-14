@@ -48,8 +48,8 @@ public static class NewsArticleDao
     public static async Task<bool> DeleteAsync(NewsArticle newsArticle)
     {
         var context = new FunewsManagementDbContext();
-        context.Remove(newsArticle);
-
+        context.NewsArticles.Remove(newsArticle);
+       
         return await context.SaveChangesAsync() > 0;
     }
 }

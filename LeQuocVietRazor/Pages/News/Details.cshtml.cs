@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
 using DataAccess;
+using Services.abstraction;
 
 namespace LeQuocVietRazor.Pages.News
 {
     public class DetailsModel : PageModel
     {
-        private readonly DataAccess.FunewsManagementDbContext _context;
+        private readonly INewsArticleServices _newsArticleServices;
 
-        public DetailsModel(DataAccess.FunewsManagementDbContext context)
+        public DetailsModel(INewsArticleServices newsArticleServices)
         {
-            _context = context;
+            _newsArticleServices = newsArticleServices;
         }
 
         public NewsArticle NewsArticle { get; set; } = default!;
@@ -28,7 +29,7 @@ namespace LeQuocVietRazor.Pages.News
                 return NotFound();
             }
 
-            var newsarticle = await _context.NewsArticles.FirstOrDefaultAsync(m => m.NewsArticleId == id);
+            var newsarticle = await _newsArticleServices.GetArticleById(id);
             if (newsarticle == null)
             {
                 return NotFound();
