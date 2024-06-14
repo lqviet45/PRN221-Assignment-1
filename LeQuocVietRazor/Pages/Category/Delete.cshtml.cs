@@ -50,7 +50,7 @@ namespace LeQuocVietRazor.Pages.Category
 
             if (category.NewsArticles.Count > 0)
             {
-                ModelState.AddModelError(string.Empty, "Category has news articles, can't delete!!");
+                //ModelState.AddModelError(string.Empty, "Category has news articles, can't delete!!");
                 Message = "Category has news articles, can't delete!!";
                 return Page();
             }
