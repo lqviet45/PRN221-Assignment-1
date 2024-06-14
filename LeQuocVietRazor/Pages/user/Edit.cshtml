@@ -4,10 +4,13 @@
 @{
     ViewData["Title"] = "Edit";
     var account = HttpContext.Session.GetString("AccountId");
-    if (account is null)
+    var role = HttpContext.Session.GetString("Role");
+    if (account is null && role is null)
     {
         Response.Redirect("/user/Login");
     }
+    
+    if (role == "3") Response.Redirect("/user/Index");
 }
 
 <h1>Edit</h1>
@@ -29,14 +32,35 @@
                 <input asp-for="SystemAccount.AccountEmail" class="form-control" />
                 <span asp-validation-for="SystemAccount.AccountEmail" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SystemAccount.AccountRole" class="control-label"></label>
-                <select asp-for="SystemAccount.AccountRole" class="form-control">
-                    <option value="1">Staff</option>
-                    <option value="2">Lecture</option>
-                </select>
-                <span asp-validation-for="SystemAccount.AccountRole" class="text-danger"></span>
-            </div>
+            @if(role == "3")
+            {
+                <div class="form-group">
+                    <label asp-for="SystemAccount.AccountRole" class="control-label"></label>
+                    <select asp-for="SystemAccount.AccountRole" class="form-control">
+                        <option value="1">Staff</option>
+                        <option value="2">Lecture</option>
+                    </select>
+                    <span asp-validation-for="SystemAccount.AccountRole" class="text-danger"></span>
+                </div>
+            } 
+            else
+            {
+                <div class="form-group">
+                    <label asp-for="SystemAccount.AccountRole" class="control-label"></label>
+                    @if (@Model.SystemAccount.AccountRole == 1)
+                    {
+                        <label asp-for="SystemAccount.AccountRole" class="control-label">Staff</label>
+                        <input asp-for="SystemAccount.AccountRole" class="form-control" disabled />
+                        <input asp-for="SystemAccount.AccountRole" value="1" hidden="hidden"/>
+                    }
+                    else
+                    {
+                        <label asp-for="SystemAccount.AccountRole">Lecture</label>
+                        <input asp-for="SystemAccount.AccountRole" value="2" hidden="hidden"/>
+                    }
+                    <span asp-validation-for="SystemAccount.AccountRole" class="text-danger"></span>
+                </div>
+            }
             <div class="form-group">
                 <label asp-for="SystemAccount.AccountPassword" class="control-label"></label>
                 <input asp-for="SystemAccount.AccountPassword" class="form-control" />

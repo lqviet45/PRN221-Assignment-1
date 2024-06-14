@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LeQuocVietRazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb1b910ff1d5d717355b413abe3503e615305893")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5940242c92693db5d57169658e0492a3f2029e97")]
 [assembly: System.Reflection.AssemblyProductAttribute("LeQuocVietRazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LeQuocVietRazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
